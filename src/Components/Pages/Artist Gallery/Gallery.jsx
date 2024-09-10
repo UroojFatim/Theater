@@ -123,10 +123,11 @@ const Gallery = () => {
   });
 
   return (
-    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8 text-center">
       {/* Heading */}
-      <h2 className="text-4xl font-bold text-white mb-10 text-center underline decoration-orange-500 underline-offset-8">
-        OUR ARTIST GALLERY
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-10 text-center relative inline-block">
+      OUR ARTIST GALLERY  
+        <span className="block w-16 h-1 bg-orange-500 mt-4 mx-auto rounded"></span>
       </h2>
 
       {/* Filter Buttons */}

@@ -60,10 +60,51 @@ const TopReviews = () => {
   return (
     <section className="py-12 px-4 bg-black text-orange-300">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center text-orange-400">Top Reviews</h2>
+      <div className='text-center'>
+       {/* Main Heading */}
+       <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-10 text-center relative inline-block">
+        Top Reviews
+        <span className="block w-16 h-1 bg-orange-500 mt-4 mx-auto rounded"></span>
+      </h2>
+      </div>
 
-        <div className="mb-12">
-          <h3 className="text-xl font-semibold mb-4 text-orange-400">Submit Your Review</h3>
+      <div className="space-y-8">
+          {reviews.map((review) => (
+            <div key={review.id} className="bg-gray-800 border-2 border-orange-600 p-6 rounded-lg shadow-lg">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-2xl font-semibold text-white">{review.author}</h3>
+                <div className="text-yellow-500">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <span key={i} className="text-xl">★</span>
+                  ))}
+                </div>
+              </div>
+              <p className="mb-4 text-gray-300">{review.content}</p>
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm text-gray-500">{review.date}</span>
+                <div className="flex items-center space-x-4">
+                  <button className="text-orange-500 hover:text-orange-600">Like ({review.likes})</button>
+                  <button className="text-red-400 hover:text-red-500">Dislike ({review.dislikes})</button>
+                </div>
+              </div>
+              {review.comments.length > 0 && (
+                <div className="mt-4 border-t border-white pt-4">
+                  <h4 className="text-lg font-semibold mb-2 text-orange-400">Comments:</h4>
+                  <ul>
+                    {review.comments.map((comment) => (
+                      <li key={comment.id} className="mb-2 text-gray-300">
+                        <strong>{comment.author}:</strong> {comment.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-12">
+          <h3 className="text-3xl font-semibold mb-4 text-white text-center ">Submit Your Review</h3>
           <form onSubmit={handleSubmitReview} className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-md mx-auto">
             <div className="mb-4">
               <label className="block text-sm font-medium mb-2 text-orange-300" htmlFor="author">Name</label>
@@ -112,40 +153,7 @@ const TopReviews = () => {
           </form>
         </div>
 
-        <div className="space-y-8">
-          {reviews.map((review) => (
-            <div key={review.id} className="bg-gray-900 p-6 rounded-lg shadow-lg">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold text-orange-400">{review.author}</h3>
-                <div className="text-yellow-500">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <span key={i} className="text-xl">★</span>
-                  ))}
-                </div>
-              </div>
-              <p className="mb-4 text-gray-300">{review.content}</p>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm text-gray-500">{review.date}</span>
-                <div className="flex items-center space-x-4">
-                  <button className="text-orange-400 hover:text-orange-500">Like ({review.likes})</button>
-                  <button className="text-red-400 hover:text-red-500">Dislike ({review.dislikes})</button>
-                </div>
-              </div>
-              {review.comments.length > 0 && (
-                <div className="mt-4 border-t border-gray-700 pt-4">
-                  <h4 className="text-lg font-semibold mb-2 text-orange-400">Comments:</h4>
-                  <ul>
-                    {review.comments.map((comment) => (
-                      <li key={comment.id} className="mb-2 text-gray-300">
-                        <strong>{comment.author}:</strong> {comment.text}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        
       </div>
     </section>
   );

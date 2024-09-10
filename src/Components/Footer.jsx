@@ -1,10 +1,20 @@
-// src/components/Footer.jsx
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({ onMagazineClick }) => {
+  const navigate = useNavigate();
+
+  const handleMagazineClick = () => {
+    // Navigate to Home page first
+    navigate('/');
+    // Trigger the scroll after navigation
+    setTimeout(() => {
+      onMagazineClick();
+    }, 0);
+  };
   return (
     <footer className="bg-black text-white py-10">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 py-8">
+      <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-8">
 
         {/* About Section */}
         <div>
@@ -35,27 +45,27 @@ const Footer = () => {
           <ul className="space-y-3">
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Urdu Theatre Shows</a>
+              <Link to="/Theater?language=Urdu" className="hover:text-gray-300 transition duration-300">Urdu Theatre Shows</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Hindi Theatre Shows</a>
+              <Link to="/Theater?language=Hindi" className="hover:text-gray-300 transition duration-300">Hindi Theatre Shows</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">English Theatre Shows</a>
+              <Link to="/Theater?language=English" className="hover:text-gray-300 transition duration-300">English Theatre Shows</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Artist Gallery</a>
+              <Link to="/artist-gallery" className="hover:text-gray-300 transition duration-300">Artist Gallery</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Upcoming Shows</a>
+              <Link to="/upcoming-shows" className="hover:text-gray-300 transition duration-300">Upcoming Shows</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Auditoriums</a>
+              <Link to="/auditoriums" className="hover:text-gray-300 transition duration-300">Auditoriums</Link>
             </li>
           </ul>
         </div>
@@ -68,27 +78,32 @@ const Footer = () => {
           <ul className="space-y-3">
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Theatre Speak (Reviews)</a>
+              <Link to="/TheaterSpeaks" className="hover:text-gray-300 transition duration-300">Theatre Speak (Reviews)</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Magazines</a>
+              <button
+                onClick={handleMagazineClick}
+                className="hover:text-gray-300 transition duration-300"
+              >
+                Magazines
+              </button>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Awards</a>
+              <Link to="/awards" className="hover:text-gray-300 transition duration-300">Awards</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Feedback</a>
+              <Link to="/feedback" className="hover:text-gray-300 transition duration-300">Feedback</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">Contact Us</a>
+              <Link to="/ContactUs" className="hover:text-gray-300 transition duration-300">Contact Us</Link>
             </li>
             <li className="flex items-center">
               <span className="w-2.5 h-2.5 bg-orange-500 rounded-full mr-2"></span>
-              <a href="#" className="hover:text-gray-300 transition duration-300">FAQs</a>
+              <Link to="/faqs" className="hover:text-gray-300 transition duration-300">FAQs</Link>
             </li>
           </ul>
         </div>
@@ -113,9 +128,9 @@ const Footer = () => {
       {/* Bottom Section */}
       <div className="mt-10 border-t border-gray-700 pt-6 text-center">
         <p className="text-sm">&copy; {new Date().getFullYear()} Theatre Show. All rights reserved.</p>
-        <div className="flex justify-center mt-4 space-x-6">
-          <a href="#" className="hover:text-gray-300 transition duration-300">Privacy Policy</a>
-          <a href="#" className="hover:text-gray-300 transition duration-300">Terms of Service</a>
+        <div className="flex flex-col md:flex-row justify-center mt-4 space-y-2 md:space-y-0 md:space-x-6">
+          <Link to="/privacy-policy" className="hover:text-gray-300 transition duration-300">Privacy Policy</Link>
+          <Link to="/terms-of-service" className="hover:text-gray-300 transition duration-300">Terms of Service</Link>
         </div>
       </div>
     </footer>

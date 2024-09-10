@@ -56,13 +56,13 @@ const Hero = () => {
 
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mt-2">
-                    <button className="bg-orange-600 text-white px-4 py-2 border-orange-600 rounded-md shadow hover:bg-transparent hover:border">
+                    <button className="bg-orange-600 text-white px-4 py-2 border-orange-600 rounded-md shadow hover:bg-transparent hover:border hover:text-orange-600 transition duration-300">
                         Get Started
                     </button>
-                    <button className="text-white border-orange-600 font-semibold px-4 py-2 border rounded-md shadow hover:bg-orange-600 hover:text-white hover:border-orange-600">
+                    <button className="text-white border-orange-600 font-semibold px-4 py-2 border rounded-md shadow hover:bg-orange-600 hover:text-white hover:border-orange-600 transition duration-300">
                         Learn More
                     </button>
-                    <button className="text-white border-orange-600 font-semibold px-4 py-2 border rounded-md shadow hover:bg-orange-600 hover:text-white hover:border-orange-600">
+                    <button className="text-white border-orange-600 font-semibold px-4 py-2 border rounded-md shadow hover:bg-orange-600 hover:text-white hover:border-orange-600 transition duration-300">
                         Contact Us
                     </button>
                 </div>
@@ -94,7 +94,7 @@ const Hero = () => {
                     <br />
                     est et expedita distinctio.
                 </p>
-                <button className="text-white text-base sm:text-xl md:text-2xl border-2 border-orange-600 px-4 py-2 rounded-md shadow hover:bg-orange-600 w-full">
+                <button className="text-white text-base sm:text-xl md:text-2xl border-2 border-orange-600 px-4 py-2 rounded-md shadow hover:bg-orange-600 w-full transition duration-300">
                     Play Now
                 </button>
             </div>

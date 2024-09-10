@@ -38,42 +38,54 @@ const TheatreSpeakPreview = () => {
   };
 
   return (
-    <section className="py-12 px-4 bg-black text-white relative">
+    <section className="py-24 px-4 bg-gray-900 text-white relative">
       <div className="container mx-auto text-center">
-        <h2 className="text-5xl font-bold mb-4 relative inline-block py-10">
+        {/* Responsive Heading */}
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 relative inline-block py-6">
           Theatre Speak Highlights
-          <span className="block w-16 h-1 bg-orange-500 mt-2 mx-auto rounded"></span>
+          <span className="block w-16 h-1 bg-orange-500 mt-4 mx-auto rounded"></span>
         </h2>
-        <div className="relative overflow-hidden">
-          <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-            {reviews.map((review) => (
-              <div key={review.id} className="flex-none w-full">
-                <div className="bg-white text-black p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-semibold mb-2">{review.author}</h3>
-                  <div className="text-orange-600 mb-2">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <span key={i} className="text-orange-600">★</span>
-                    ))}
-                  </div>
-                  <p className="mb-4">{review.content}</p>
-                  <span className="text-sm text-gray-600">{review.date}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+
+        {/* Testimonials Section */}
+        <div className="flex justify-center items-center space-x-4 mt-8">
+          {/* Previous Button */}
           <button
             onClick={handlePrev}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-orange-600 p-2 rounded-full hover:bg-orange-700 transition"
+            className="bg-orange-600 p-2 rounded-full hover:bg-orange-700 transition"
           >
             &#9664;
           </button>
+
+          {/* Testimonial Cards */}
+          <div className="w-full max-w-lg md:max-w-3xl lg:max-w-5xl overflow-hidden relative">
+            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+              {reviews.map((review) => (
+                <div key={review.id} className="flex-none w-full px-4">
+                  <div className="bg-white text-black p-6 rounded-lg shadow-lg mx-auto w-full sm:w-96 md:w-full">
+                    <h3 className="text-xl font-semibold mb-2">{review.author}</h3>
+                    <div className="text-orange-600 mb-2">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <span key={i} className="text-orange-600">★</span>
+                      ))}
+                    </div>
+                    <p className="mb-4 text-sm sm:text-base">{review.content}</p>
+                    <span className="text-xs text-gray-600">{review.date}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Next Button */}
           <button
             onClick={handleNext}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-orange-600 p-2 rounded-full hover:bg-orange-700 transition"
+            className="bg-orange-600 p-2 rounded-full hover:bg-orange-700 transition"
           >
             &#9654;
           </button>
         </div>
+
+        {/* Call to Action Button */}
         <button
           onClick={handleButtonClick}
           className="mt-8 bg-orange-600 text-white py-2 px-6 rounded-lg hover:bg-orange-700 transition"

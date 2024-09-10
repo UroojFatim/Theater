@@ -34,11 +34,15 @@ const Auditoriums = () => {
   ];
 
   return (
-    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8 text-center">
       {/* Main Heading */}
-      <h2 className="text-4xl font-extrabold text-white mb-10 text-center underline decoration-orange-500 underline-offset-8">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-10 text-center relative inline-block">
         Auditoriums
+        <span className="block w-16 h-1 bg-orange-500 mt-4 mx-auto rounded"></span>
       </h2>
+      
+
+      {/* Auditorium List */}
       <div className="max-w-7xl mx-auto space-y-16">
         {auditoriums.map((auditorium, index) => (
           <div
@@ -52,13 +56,13 @@ const Auditoriums = () => {
               <img
                 src={auditorium.imageUrl}
                 alt={auditorium.name}
-                className="rounded-lg shadow-xl w-full h-auto"
+                className="rounded-lg shadow-xl w-full h-auto object-cover"
               />
             </div>
 
             {/* Details Section */}
             <div className="lg:w-1/2 lg:pl-8 text-left">
-              <h3 className="text-3xl font-bold text-orange-400 mb-4 group-hover:text-orange-500 transition-colors duration-300">
+              <h3 className="text-2xl sm:text-3xl font-bold text-orange-400 mb-4 group-hover:text-orange-500 transition-colors duration-300">
                 {auditorium.name}
               </h3>
               <p className="text-gray-400 mb-2">
@@ -83,8 +87,9 @@ const Auditoriums = () => {
 
       {/* Interactive Map Section */}
       <div className="max-w-7xl mx-auto mt-24">
-        <h3 className="text-3xl font-bold text-white mb-6 text-center underline decoration-orange-500 underline-offset-8">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 text-center relative inline-block">
           Find Auditoriums
+          <span className="block w-16 h-1 bg-orange-500 mt-2 mx-auto rounded"></span>
         </h3>
         <div className="h-96 bg-gray-800 rounded-lg overflow-hidden shadow-xl">
           {/* Placeholder for interactive map */}

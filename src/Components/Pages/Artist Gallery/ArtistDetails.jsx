@@ -121,7 +121,14 @@ const ArtistDetails = () => {
   }
 
   return (
-    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8 ">
+      <div className='text-center'>
+       {/* Main Heading */}
+       <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-10 text-center relative inline-block">
+        Artist Profile
+        <span className="block w-16 h-1 bg-orange-500 mt-4 mx-auto rounded"></span>
+      </h2>
+      </div>
       <div className="max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-lg flex flex-col md:flex-row border-2 border-orange-600">
         {/* Image Section */}
         <div className="flex-shrink-0">
@@ -134,9 +141,9 @@ const ArtistDetails = () => {
         
         {/* Details Section */}
         <div className="p-6 md:w-1/2">
-          <h2 className="text-3xl font-bold text-white mb-4">{artist.name}</h2>
+          <h2 className="text-4xl font-bold text-white mb-4 text-center">{artist.name}</h2>
           <p className="text-gray-300 mb-2">
-            <span className="font-semibold text-white">Genre:</span> {artist.genre}
+            <span className="font-semibold text-white">Genre: </span> {artist.genre}
           </p>
           <p className="text-gray-300 mb-2">
             <span className="font-semibold text-white">Language:</span> {artist.language}

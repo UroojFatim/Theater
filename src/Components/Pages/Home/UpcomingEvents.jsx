@@ -31,28 +31,29 @@ const UpcomingEvents = () => {
   ];
 
   return (
-    <div className="bg-black py-28 px-4 sm:px-6 lg:px-8">
+    <div className="bg-black py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-6xl font-bold text-white mb-4 relative inline-block">
+        {/* Responsive Heading */}
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 relative inline-block">
           Upcoming Events
           {/* Underline element */}
-          <span className="absolute left-1/2 transform -translate-x-1/2 top-20 w-24 h-1 bg-orange-500 rounded mt-2"></span>
+          <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-6 w-24 h-1 bg-orange-500 rounded"></span>
         </h2>
-        <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-16">
+        <div className="grid gap-8 mt-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {events.map((event) => (
             <div
               key={event.id}
               className="border-2 border-orange-500 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl"
             >
-              <img src={event.imageUrl} alt={event.title} className="w-full h-56 object-fill" />
+              <img src={event.imageUrl} alt={event.title} className="w-full h-56 object-cover" />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white">{event.title}</h3>
-                <p className="mt-2 text-gray-300">{event.description}</p>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white">{event.title}</h3>
+                <p className="mt-2 text-gray-300 text-sm sm:text-base md:text-lg">{event.description}</p>
                 <div className="mt-4">
-                  <span className="hover:cursor-pointer inline-block bg-orange-500 text-white px-3 py-1 text-sm font-semibold rounded-full">
+                  <span className="hover:cursor-pointer inline-block bg-orange-500 text-white px-3 py-1 text-xs sm:text-sm font-semibold rounded-full">
                     Date: {event.date}
                   </span>
-                  <span className="hover:cursor-pointer inline-block bg-gray-700 text-white px-3 py-1 text-sm font-semibold rounded-full ml-2">
+                  <span className="hover:cursor-pointer inline-block bg-gray-700 text-white px-3 py-1 text-xs sm:text-sm font-semibold rounded-full ml-2">
                     Venue: {event.venue}
                   </span>
                 </div>
