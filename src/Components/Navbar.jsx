@@ -39,7 +39,7 @@
             </li></Link>
             <li><Link to="/auditoriums" className="">Auditoriums</Link></li>
             <li><Link to="/artist-gallery" className="">Gallery</Link></li>
-            <li><Link to="/upcoming-shows" className="">Upcoming Shows</Link></li>
+            <li><Link to="/TheaterSpeaks" className="">Theater Speaks</Link></li>
             <li><Link to="/feedback" className="">Feedback</Link></li>   
             <li><Link to="/queries" className="">Queries</Link></li>
           </ul>
@@ -86,7 +86,7 @@
             </li>
             <li><Link to="/auditoriums" className="block px-4 py-2 hover:bg-gray-700">Auditoriums</Link></li>
             <li><Link to="/artist-gallery" className="block px-4 py-2 hover:bg-gray-700">Artist Gallery</Link></li>
-            <li><Link to="/upcoming-shows" className="block px-4 py-2 hover:bg-gray-700">Upcoming Shows</Link></li>
+            <li><Link to="/upcoming-shows" className="block px-4 py-2 hover:bg-gray-700">Theater Speaks</Link></li>
             <li><Link to="/feedback" className="block px-4 py-2 hover:bg-gray-700">Feedback</Link></li>
             <li><Link to="/queries" className="block px-4 py-2 hover:bg-gray-700">Queries</Link></li>
           </ul>
