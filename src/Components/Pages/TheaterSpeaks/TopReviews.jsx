@@ -30,25 +30,49 @@ const TopReviews = () => {
     // Add more review objects as needed
   ]);
 
+  const [newReview, setNewReview] = useState({
+    author: '',
+    content: '',
+    rating: 0
+  });
+
+  const handleStarClick = (star) => {
+    setNewReview({ ...newReview, rating: star });
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNewReview({ ...newReview, [name]: value });
+  };
+
   const handleSubmitReview = (event) => {
     event.preventDefault();
-    // Logic to handle form submission and adding a new review
+    // Add new review to the list (for demonstration, we'll just log it)
+    console.log(newReview);
+    // Clear form after submission
+    setNewReview({
+      author: '',
+      content: '',
+      rating: 0
+    });
   };
 
   return (
     <section className="py-12 px-4 bg-black text-orange-300">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center text-orange-400">Top Reviews</h2>
-        
+
         <div className="mb-12">
           <h3 className="text-xl font-semibold mb-4 text-orange-400">Submit Your Review</h3>
-          <form onSubmit={handleSubmitReview} className="bg-gray-900 p-6 rounded-lg shadow-lg">
+          <form onSubmit={handleSubmitReview} className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-md mx-auto">
             <div className="mb-4">
               <label className="block text-sm font-medium mb-2 text-orange-300" htmlFor="author">Name</label>
               <input 
                 type="text" 
                 id="author" 
                 name="author" 
+                value={newReview.author}
+                onChange={handleInputChange}
                 className="w-full border border-gray-700 rounded-lg p-2 bg-gray-800 text-white"
                 required
               />
@@ -59,6 +83,8 @@ const TopReviews = () => {
                 id="content" 
                 name="content" 
                 rows="4" 
+                value={newReview.content}
+                onChange={handleInputChange}
                 className="w-full border border-gray-700 rounded-lg p-2 bg-gray-800 text-white"
                 required
               ></textarea>
@@ -67,13 +93,19 @@ const TopReviews = () => {
               <label className="block text-sm font-medium mb-2 text-orange-300">Rating</label>
               <div className="flex items-center space-x-2">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-yellow-500 text-xl">★</span>
+                  <span
+                    key={i}
+                    className={`cursor-pointer text-xl ${i < newReview.rating ? 'text-yellow-500' : 'text-gray-500'}`}
+                    onClick={() => handleStarClick(i + 1)}
+                  >
+                    ★
+                  </span>
                 ))}
               </div>
             </div>
             <button 
               type="submit" 
-              className="bg-orange-500 text-black py-2 px-4 rounded-lg hover:bg-orange-600"
+              className="bg-orange-500 text-black py-2 px-4 rounded-lg hover:bg-orange-600 w-full"
             >
               Submit Review
             </button>

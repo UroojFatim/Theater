@@ -38,23 +38,21 @@ const TheatreSpeakPreview = () => {
   };
 
   return (
-    <section className="py-12 px-4 bg-black text-white">
+    <section className="py-12 px-4 bg-black text-white relative">
       <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-8">Theatre Speak Highlights</h2>
-        <div className="relative">
-          <div className="flex overflow-hidden">
-            {reviews.map((review, index) => (
-              <div
-                key={review.id}
-                className={`flex-none w-full transition-transform duration-500 ease-in-out ${
-                  index === currentIndex ? 'block' : 'hidden'
-                }`}
-              >
+        <h2 className="text-5xl font-bold mb-4 relative inline-block py-10">
+          Theatre Speak Highlights
+          <span className="block w-16 h-1 bg-orange-500 mt-2 mx-auto rounded"></span>
+        </h2>
+        <div className="relative overflow-hidden">
+          <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            {reviews.map((review) => (
+              <div key={review.id} className="flex-none w-full">
                 <div className="bg-white text-black p-6 rounded-lg shadow-md">
                   <h3 className="text-xl font-semibold mb-2">{review.author}</h3>
-                  <div className="text-yellow-500 mb-2">
+                  <div className="text-orange-600 mb-2">
                     {[...Array(review.rating)].map((_, i) => (
-                      <span key={i} className="text-yellow-500">★</span>
+                      <span key={i} className="text-orange-600">★</span>
                     ))}
                   </div>
                   <p className="mb-4">{review.content}</p>
@@ -65,20 +63,20 @@ const TheatreSpeakPreview = () => {
           </div>
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-orange-600 p-2 rounded-full hover:bg-orange-700 transition"
           >
             &#9664;
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-orange-600 p-2 rounded-full hover:bg-orange-700 transition"
           >
             &#9654;
           </button>
         </div>
         <button
           onClick={handleButtonClick}
-          className="mt-8 bg-orange-500 text-white py-2 px-6 rounded-lg hover:bg-orange-600"
+          className="mt-8 bg-orange-600 text-white py-2 px-6 rounded-lg hover:bg-orange-700 transition"
         >
           See More Reviews
         </button>
