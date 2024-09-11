@@ -1,5 +1,6 @@
 // src/components/Hero.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 // Array of objects containing images and dynamic headings
 const slides = [
@@ -22,7 +23,7 @@ const Hero = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
+            setCurrentSlideIndex((prevIndex) => (prevIndex + 1)  % slides.length);
         }, 5000);
 
         return () => clearInterval(interval);
@@ -31,7 +32,8 @@ const Hero = () => {
     const { image, heading } = slides[currentSlideIndex];
 
     return (
-        <div className="relative w-full h-screen overflow-hidden">
+
+        <div className="relative w-full h-screen overflow-hidden lg:mt-16 md:mt-11 mt-10">
             {/* Background Images */}
             {slides.map((slide, index) => (
                 <div
@@ -56,15 +58,18 @@ const Hero = () => {
 
                 {/* Buttons */}
                 <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0 mt-2">
-                    <button className="bg-orange-600 text-white px-4 py-2 border-orange-600 rounded-md shadow hover:bg-transparent hover:border hover:text-orange-600 transition duration-300">
+                   <Link to = "/Theater"> <button className="bg-orange-600 text-white px-4 py-2 border-orange-600 rounded-md shadow hover:bg-transparent hover:border hover:text-orange-600 transition duration-300">
                         Get Started
                     </button>
+                    </Link>
                     <button className="text-white border-orange-600 font-semibold px-4 py-2 border rounded-md shadow hover:bg-orange-600 hover:text-white hover:border-orange-600 transition duration-300">
                         Learn More
                     </button>
+                    <Link to = "/ContactUs">
                     <button className="text-white border-orange-600 font-semibold px-4 py-2 border rounded-md shadow hover:bg-orange-600 hover:text-white hover:border-orange-600 transition duration-300">
                         Contact Us
                     </button>
+                    </Link> 
                 </div>
 
                 {/* Static Date */}

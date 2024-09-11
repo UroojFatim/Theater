@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const artists = [
   {
@@ -121,7 +121,7 @@ const ArtistDetails = () => {
   }
 
   return (
-    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8 ">
+    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8 lg:mt-16 md:mt-11 mt-10">
       <div className='text-center'>
        {/* Main Heading */}
        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-10 text-center relative inline-block">
@@ -131,11 +131,11 @@ const ArtistDetails = () => {
       </div>
       <div className="max-w-4xl mx-auto bg-gray-900 rounded-lg overflow-hidden shadow-lg flex flex-col md:flex-row border-2 border-orange-600">
         {/* Image Section */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 md:w-1/2">
           <img
             src={artist.imageUrl}
             alt={artist.name}
-            className="w-full h-80 object-cover md:h-full "
+            className="w-full h-80 object-cover md:h-full"
           />
         </div>
         
@@ -164,6 +164,9 @@ const ArtistDetails = () => {
             <span className="font-semibold text-white">Awards & Achievements:</span> Details of awards and achievements go here.
           </p>
         </div>
+      </div>
+        <div className='text-center my-10'>
+      <Link to="/artist-gallery" className="text-white px-5 py-2 rounded-2xl inline-block border-2 border-orange-600 hover:bg-orange-600">Back to Shows</Link>
       </div>
     </div>
   );

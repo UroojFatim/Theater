@@ -20,11 +20,18 @@ const TheatreSpeakPreview = () => {
     {
       id: 2,
       author: 'Emma Watson',
-      rating: 5,
+      rating: 3,
       content: 'A breathtaking musical with outstanding performances and stunning visuals.',
       date: '2024-08-20',
     },
-    // Add more reviews as needed
+    {
+      id: 3,
+      author: 'Urooj Fatima',
+      rating: 5,
+      content: 'Fantastic Website , Love it ',
+      date: '2004-11-15',
+    },
+   
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,7 +58,7 @@ const TheatreSpeakPreview = () => {
           {/* Previous Button */}
           <button
             onClick={handlePrev}
-            className="bg-orange-600 p-2 rounded-full hover:bg-orange-700 transition"
+            className="bg-orange-500 p-2 rounded-full hover:bg-orange-600 transition"
           >
             &#9664;
           </button>
@@ -79,7 +86,7 @@ const TheatreSpeakPreview = () => {
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className="bg-orange-600 p-2 rounded-full hover:bg-orange-700 transition"
+            className="bg-orange-500 p-2 rounded-full hover:bg-orange-600 transition"
           >
             &#9654;
           </button>
@@ -88,7 +95,7 @@ const TheatreSpeakPreview = () => {
         {/* Call to Action Button */}
         <button
           onClick={handleButtonClick}
-          className="mt-8 bg-orange-600 text-white py-2 px-6 rounded-lg hover:bg-orange-700 transition"
+          className="mt-8 bg-orange-500 border-2 border-orange-500 text-white py-2 px-6 rounded-lg hover:bg-transparent transition"
         >
           See More Reviews
         </button>

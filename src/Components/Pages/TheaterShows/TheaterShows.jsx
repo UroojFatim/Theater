@@ -1,4 +1,3 @@
-// ShowsPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -152,9 +151,11 @@ const ShowsPage = () => {
   });
 
   const location = useLocation();
+  console.log(location)
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
+    console.log(queryParams)  
     const language = queryParams.get('language') || 'All';
     setFilters(prevFilters => ({
       ...prevFilters,
@@ -184,8 +185,12 @@ const ShowsPage = () => {
       isPriceInRange
     );
   });
+
+  
+
+  console.log(filteredShows)
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col sm:flex-row lg:mt-16 md:mt-11 mt-16">
       {/* Sidebar */}
       <aside className="lg:w-60 bg-black text-white p-4 lg:pt-32 lg:flex-shrink-0">
         <h2 className="text-xl font-semibold mb-4 border-b border-orange-500 pb-2">Filters</h2>
@@ -257,7 +262,7 @@ const ShowsPage = () => {
       </aside>
 
       {/* Shows Grid */}
-      <main className="flex-1 p-4 sm:p-6 lg:p-8 bg-gray-900">
+      <main className="flex-1 p-4 sm:p-6 lg:p-8 lg:py-12 bg-gray-900">
         <div className='text-center mb-8'>
           {/* Main Heading */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mb-6 relative inline-block">
@@ -266,7 +271,7 @@ const ShowsPage = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-4 xl:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-4 xl:gap-8">
           {filteredShows.map(show => (
             <Link
               key={show.id}

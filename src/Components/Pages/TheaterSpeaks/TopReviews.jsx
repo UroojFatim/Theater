@@ -1,4 +1,3 @@
-// src/components/TopReviews.jsx
 import React, { useState } from 'react';
 
 const TopReviews = () => {
@@ -47,8 +46,18 @@ const TopReviews = () => {
 
   const handleSubmitReview = (event) => {
     event.preventDefault();
-    // Add new review to the list (for demonstration, we'll just log it)
-    console.log(newReview);
+
+    const newReviewWithId = {
+      ...newReview,
+      id: reviews.length + 1, // Simple way to generate a new unique ID
+      date: new Date().toISOString().split('T')[0], // Current date in YYYY-MM-DD format
+      likes: 0,
+      dislikes: 0,
+      comments: []
+    };
+
+    setReviews([...reviews, newReviewWithId]);
+
     // Clear form after submission
     setNewReview({
       author: '',
@@ -58,17 +67,17 @@ const TopReviews = () => {
   };
 
   return (
-    <section className="py-12 px-4 bg-black text-orange-300">
+    <section className="py-12 px-4 bg-black text-orange-300 lg:mt-16 md:mt-11 mt-10">
       <div className="container mx-auto">
-      <div className='text-center'>
-       {/* Main Heading */}
-       <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-10 text-center relative inline-block">
-        Top Reviews
-        <span className="block w-16 h-1 bg-orange-500 mt-4 mx-auto rounded"></span>
-      </h2>
-      </div>
+        <div className='text-center'>
+          {/* Main Heading */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-10 text-center relative inline-block">
+            Top Reviews
+            <span className="block w-16 h-1 bg-orange-500 mt-4 mx-auto rounded"></span>
+          </h2>
+        </div>
 
-      <div className="space-y-8">
+        <div className="space-y-8">
           {reviews.map((review) => (
             <div key={review.id} className="bg-gray-800 border-2 border-orange-600 p-6 rounded-lg shadow-lg">
               <div className="flex items-center justify-between mb-4">
@@ -104,14 +113,15 @@ const TopReviews = () => {
         </div>
 
         <div className="mt-12">
-          <h3 className="text-3xl font-semibold mb-4 text-white text-center ">Submit Your Review</h3>
+          <h3 className="text-3xl font-semibold mb-4 text-white text-center">Submit Your Review</h3>
           <form onSubmit={handleSubmitReview} className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-md mx-auto">
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2 text-orange-300" htmlFor="author">Name</label>
+              <label className="block text-sm font-medium mb-2 text-orange-500" htmlFor="author">Name</label>
               <input 
                 type="text" 
                 id="author" 
                 name="author" 
+                placeholder='Enter Your Name'
                 value={newReview.author}
                 onChange={handleInputChange}
                 className="w-full border border-gray-700 rounded-lg p-2 bg-gray-800 text-white"
@@ -119,11 +129,12 @@ const TopReviews = () => {
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2 text-orange-300" htmlFor="content">Review</label>
+              <label className="block text-sm font-medium mb-2 text-orange-500" htmlFor="content">Review</label>
               <textarea 
                 id="content" 
                 name="content" 
                 rows="4" 
+                placeholder='Enter your Openion'
                 value={newReview.content}
                 onChange={handleInputChange}
                 className="w-full border border-gray-700 rounded-lg p-2 bg-gray-800 text-white"
@@ -131,7 +142,7 @@ const TopReviews = () => {
               ></textarea>
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-medium mb-2 text-orange-300">Rating</label>
+              <label className="block text-sm font-medium mb-2 text-orange-500">Rating</label>
               <div className="flex items-center space-x-2">
                 {[...Array(5)].map((_, i) => (
                   <span
@@ -152,8 +163,6 @@ const TopReviews = () => {
             </button>
           </form>
         </div>
-
-        
       </div>
     </section>
   );

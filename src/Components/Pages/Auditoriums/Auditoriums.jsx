@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Auditoriums = () => {
+
   // Array of auditoriums
   const auditoriums = [
     {
@@ -34,7 +35,7 @@ const Auditoriums = () => {
   ];
 
   return (
-    <div className="bg-black py-16 px-4 sm:px-6 lg:px-8 text-center">
+    <div className="bg-black py-20 px-4 sm:px-6 lg:px-8 text-center lg:mt-16 md:mt-11 mt-10">
       {/* Main Heading */}
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-10 text-center relative inline-block">
         Auditoriums
