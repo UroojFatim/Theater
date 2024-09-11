@@ -1,6 +1,7 @@
 import React from 'react';
 
 const UpcomingEvents = () => {
+
   // Array of events
   const events = [
     {
@@ -27,18 +28,21 @@ const UpcomingEvents = () => {
       venue: 'Grand Hall',
       imageUrl: 'https://theme190-tickets.myshopify.com/cdn/shop/collections/Motorhead_Gigantour_2012_1.png?v=1437983847',
     },
-    // Add more events here
   ];
 
   return (
     <div className="bg-black py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
+
+        
         {/* Responsive Heading */}
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 relative inline-block">
           Upcoming Events
           {/* Underline element */}
           <span className="absolute left-1/2 transform -translate-x-1/2 top-full mt-6 w-24 h-1 bg-orange-500 rounded"></span>
         </h2>
+
+        {/* Events Cards  */}
         <div className="grid gap-8 mt-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {events.map((event) => (
             <div

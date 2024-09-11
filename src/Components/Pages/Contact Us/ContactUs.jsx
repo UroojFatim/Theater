@@ -5,12 +5,11 @@ const ContactUs = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (data) => {
-    // Handle form submission (e.g., send data to a server)
     console.log(data);
   };
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen lg:mt-16 md:mt-11 mt-10">
       {/* Google Map Section */}
       <div className="relative h-96 border-4 border-gray-800">
         <iframe

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Magazine = () => {
+const   Magazine = () => {
   return (
     <div className=" py-12 bg-gray-900">
         <div className="text-center">
@@ -14,6 +14,7 @@ const Magazine = () => {
 
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-5">
+        
         {/* Left Thumbnails */}
         <div className="hidden md:flex flex-col space-y-4">
           <img src="https://www.webstrot.com/html/moviepro/html/images/content/vp1.jpg" alt="Thumbnail" className="w-28 h-28 object-cover rounded" />

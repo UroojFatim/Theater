@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const ShopNow = () => {
   return (
     <div className="relative bg-cover bg-center h-screen md:h-[80vh] flex items-center justify-center" style={{ backgroundImage: `url('https://theme190-tickets.myshopify.com/cdn/shop/files/main_image.png?v=1708544333&width=1750')` }}>
+      
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
       
@@ -22,6 +23,8 @@ const ShopNow = () => {
           SHOP NOW →
         </Link>
       </div>
+
+
     </div>
   );
 };

@@ -146,7 +146,7 @@ const ShowDetailPage = () => {
   }
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8 bg-gray-900 min-h-screen text-white ">
+    <div className="p-4 sm:p-6 lg:p-8 bg-gray-900 min-h-screen text-white lg:mt-16 md:mt-11 mt-10">
 
         <div className='text-center my-10'>
           {/* Main Heading */}
@@ -177,7 +177,7 @@ const ShowDetailPage = () => {
       </div>
 
       <div className='text-center my-10'>
-      <Link to="/Theater" className="text-white px-5 py-2 rounded-2xl inline-block border-2 border-orange-600">Back to Shows</Link>
+      <Link to="/Theater" className="text-white px-5 py-2 rounded-2xl inline-block border-2 border-orange-600 hover:bg-orange-600">Back to Shows</Link>
       </div>
     </div>
   );

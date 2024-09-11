@@ -5,9 +5,7 @@ const Footer = ({ onMagazineClick }) => {
   const navigate = useNavigate();
 
   const handleMagazineClick = () => {
-    // Navigate to Home page first
     navigate('/');
-    // Trigger the scroll after navigation
     setTimeout(() => {
       onMagazineClick();
     }, 0);
@@ -117,16 +115,16 @@ const Footer = ({ onMagazineClick }) => {
             For queries or feedback:
           </p>
           <p className="text-sm mt-2">
-            Email: <a href="mailto:support@theatre-show.com" className="hover:text-gray-300 transition duration-300">support@theatre-show.com</a>
+            Email: <a href="mailto:support@theatre-show.com" className="hover:text-gray-300 transition duration-300">eshalmerab1@gmail.com</a>
           </p>
           <p className="text-sm mt-2">
-            Phone: <a href="tel:+1234567890" className="hover:text-gray-300 transition duration-300">+123-456-7890</a>
+            Phone: <a href="tel:+1234567890" className="hover:text-gray-300 transition duration-300">+92 344 8302253</a>
           </p>
         </div>
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-10 border-t border-gray-700 pt-6 text-center">
+      <div className="mt-10 border-t-2 border-gray-700 pt-6 text-center">
         <p className="text-sm">&copy; {new Date().getFullYear()} Theatre Show. All rights reserved.</p>
         <div className="flex flex-col md:flex-row justify-center mt-4 space-y-2 md:space-y-0 md:space-x-6">
           <Link to="/privacy-policy" className="hover:text-gray-300 transition duration-300">Privacy Policy</Link>
